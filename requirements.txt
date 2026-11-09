@@ -1,0 +1,29 @@
+
+# Data processing
+pandas
+numpy
+
+# Visualization and EDA
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+xgboost
+joblib
+
+# MLOps
+mlflow
+
+# Backend
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+
+# Frontend integration
+jinja2
+
+# Notebook
+jupyter
+ipykernel

@@ -1,0 +1,17 @@
+[project]
+name = "customer-churn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Priyanshu Raj", email = "priyanshu.rajchauhan136315@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+customer-churn = "customer_churn:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
