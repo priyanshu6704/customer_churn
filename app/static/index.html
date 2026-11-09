@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#11130F">
+
+    <title>ChurnGuard | Customer Churn Prediction</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">C</div>
+                <div>
+                    <h1>ChurnGuard</h1>
+                    <p>Customer Intelligence Platform</p>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Prediction System
+            </div>
+        </header>
+
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- Customer Input Section -->
+            <section id="input-section" class="input-section">
+
+                <div class="page-heading">
+                    <span class="eyebrow">CUSTOMER ANALYSIS</span>
+                    <h2>Predict Customer Churn</h2>
+                    <p>
+                        Enter customer information to evaluate churn risk
+                        using three machine learning models.
+                    </p>
+                </div>
+
+                <form id="prediction-form">
+
+                    <!-- Personal Information -->
+                    <div class="form-card">
+
+                        <div class="section-heading">
+                            <h3>Personal Information</h3>
+                            <p>Basic customer details</p>
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="credit_score">Credit Score</label>
+                                <input type="number" id="credit_score"
+                                    name="credit_score"
+                                    min="300" max="900"
+                                    placeholder="300 - 900" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select country</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Spain">Spain</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age"
+                                    min="18" max="100"
+                                    placeholder="Customer age" required>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Account Information -->
+                    <div class="form-card">
+
+                        <div class="section-heading">
+                            <h3>Account Information</h3>
+                            <p>Customer banking and account details</p>
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="tenure">Tenure (Years)</label>
+                                <input type="number" id="tenure"
+                                    name="tenure" min="0" max="10"
+                                    placeholder="0 - 10 years" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="balance">Account Balance</label>
+                                <input type="number" id="balance"
+                                    name="balance" min="0" step="any"
+                                    placeholder="Enter balance" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="products_number">Number of Products</label>
+                                <select id="products_number"
+                                    name="products_number" required>
+                                    <option value="">Select products</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="estimated_salary">Estimated Salary</label>
+                                <input type="number" id="estimated_salary"
+                                    name="estimated_salary"
+                                    min="0" step="any"
+                                    placeholder="Enter salary" required>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Customer Activity -->
+                    <div class="form-card">
+
+                        <div class="section-heading">
+                            <h3>Customer Activity</h3>
+                            <p>Banking services and engagement</p>
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="credit_card">Has Credit Card?</label>
+                                <select id="credit_card"
+                                    name="credit_card" required>
+                                    <option value="">Select option</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="active_member">Active Member?</label>
+                                <select id="active_member"
+                                    name="active_member" required>
+                                    <option value="">Select option</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Submit -->
+                    <div class="submit-container">
+                        <p>All three models will independently evaluate this customer.</p>
+
+                        <button type="submit" id="predict-btn">
+                            Predict Churn
+                            <span>→</span>
+                        </button>
+                    </div>
+
+                </form>
+
+                <div id="error-message" class="error-message hidden"></div>
+
+            </section>
+
+
+            <!-- Results Section -->
+            <section id="results-section" class="results-section hidden">
+
+                <div class="page-heading">
+                    <span class="eyebrow">ANALYSIS COMPLETE</span>
+                    <h2>Prediction Results</h2>
+                    <p>Independent predictions from all three models.</p>
+                </div>
+
+                <div id="prediction-results" class="prediction-grid">
+                    <!-- Prediction cards generated by JavaScript -->
+                </div>
+
+                <div class="form-card comparison-card">
+
+                    <div class="section-heading">
+                        <h3>Model Performance Comparison</h3>
+                        <p>Evaluation metrics from the test dataset</p>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="model-chart"></canvas>
+                    </div>
+
+                    <div id="metrics-table-container">
+                        <!-- Metrics table generated by JavaScript -->
+                    </div>
+
+                </div>
+
+                <button type="button" id="new-prediction-btn">
+                    ← New Prediction
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>ChurnGuard · Machine Learning Powered Customer Intelligence</p>
+        </footer>
+
+    </div>
+   
+    <script src="/static/script.js"></script>
+
+</body>
+</html>

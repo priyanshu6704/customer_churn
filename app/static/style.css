@@ -1,0 +1,648 @@
+
+/* =========================================
+   CHURNGUARD - BLACK & OLIVE GREEN THEME
+========================================= */
+
+:root {
+    --bg: #11130F;
+    --surface: #1A1D17;
+    --card: #20231C;
+    --border: #34382C;
+
+    --olive: #87945B;
+    --olive-dark: #687443;
+    --olive-light: #B4C18A;
+
+    --text: #F2F3EC;
+    --muted: #A0A494;
+
+    --danger: #E47777;
+    --success: #8DAE79;
+
+    --radius: 14px;
+    --transition: 0.25s ease;
+}
+
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 6%;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    background: var(--olive-dark);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.brand h1 {
+    font-size: 21px;
+    letter-spacing: -0.5px;
+}
+
+.brand p {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--surface);
+    padding: 9px 15px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+}
+
+.status-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: var(--success);
+}
+
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+main {
+    max-width: 1050px;
+    margin: auto;
+    padding: 55px 0 70px;
+}
+
+.page-heading {
+    margin-bottom: 32px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--olive-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.page-heading h2 {
+    font-size: clamp(26px, 4vw, 34px);
+    letter-spacing: -1px;
+    margin-bottom: 9px;
+}
+
+.page-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FORM CARDS
+========================================= */
+
+#prediction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 27px;
+    min-width: 0;
+    transition: border var(--transition);
+}
+
+.form-card:hover {
+    border-color: #50573B;
+}
+
+.section-heading {
+    margin-bottom: 23px;
+}
+
+.section-heading h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.section-heading p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #D8DACF;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 47px;
+    padding: 0 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    outline: none;
+    font-size: 13px;
+    transition: var(--transition);
+}
+
+.form-group input::placeholder {
+    color: #777C6D;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: var(--card);
+    color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--olive);
+    box-shadow: 0 0 0 3px rgba(135, 148, 91, 0.12);
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.submit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.submit-container p {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+#predict-btn,
+#new-prediction-btn {
+    border: none;
+    background: var(--olive-dark);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+#predict-btn {
+    min-width: 210px;
+}
+
+#predict-btn span {
+    margin-left: 12px;
+    font-size: 18px;
+}
+
+#predict-btn:hover,
+#new-prediction-btn:hover {
+    background: var(--olive);
+    transform: translateY(-2px);
+}
+
+#predict-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.error-message {
+    margin-top: 20px;
+    padding: 13px 16px;
+    border: 1px solid rgba(228, 119, 119, 0.4);
+    background: rgba(228, 119, 119, 0.08);
+    color: var(--danger);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   PREDICTION RESULTS
+========================================= */
+
+.results-section {
+    animation: fadeIn 0.4s ease;
+}
+
+.prediction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 30px;
+}
+
+.prediction-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    min-width: 0;
+}
+
+.prediction-card h3 {
+    font-size: 14px;
+    margin-bottom: 19px;
+}
+
+.prediction-status {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.prediction-status.low {
+    color: var(--success);
+}
+
+.prediction-status.high {
+    color: var(--danger);
+}
+
+.prediction-probability {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.probability-bar {
+    width: 100%;
+    height: 7px;
+    background: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.probability-fill {
+    height: 100%;
+    background: var(--olive);
+    border-radius: 20px;
+}
+
+
+/* =========================================
+   MODEL COMPARISON
+========================================= */
+
+.comparison-card {
+    margin-bottom: 25px;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    margin: 15px 0 30px;
+}
+
+#metrics-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+    font-size: 13px;
+}
+
+.metrics-table th,
+.metrics-table td {
+    padding: 13px 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.metrics-table th {
+    color: var(--olive-light);
+    font-weight: 600;
+    background: var(--card);
+}
+
+.metrics-table td:first-child,
+.metrics-table th:first-child {
+    text-align: left;
+}
+
+.metrics-table td {
+    color: #D5D8CB;
+}
+
+.metrics-table tr:hover td {
+    background: rgba(135, 148, 91, 0.06);
+}
+
+
+/* =========================================
+   NEW PREDICTION BUTTON
+========================================= */
+
+#new-prediction-btn {
+    display: block;
+    margin: 0 auto;
+    min-width: 180px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 10px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .app-container {
+        padding: 0 4%;
+    }
+
+    main {
+        padding-top: 40px;
+    }
+
+    .prediction-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chart-container {
+        height: 280px;
+    }
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .app-container {
+        padding: 0 18px;
+    }
+
+    .header {
+        min-height: 75px;
+    }
+
+    .brand-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 20px;
+    }
+
+    .brand h1 {
+        font-size: 18px;
+    }
+
+    .brand p {
+        font-size: 10px;
+    }
+
+    .status {
+        padding: 7px 9px;
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    main {
+        padding: 35px 0 45px;
+    }
+
+    .page-heading {
+        margin-bottom: 25px;
+    }
+
+    .page-heading h2 {
+        font-size: 26px;
+    }
+
+    .page-heading p {
+        font-size: 13px;
+    }
+
+    #prediction-form {
+        gap: 16px;
+    }
+
+    .form-card {
+        padding: 20px 16px;
+    }
+
+    .section-heading {
+        margin-bottom: 19px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 46px;
+    }
+
+    #predict-btn {
+        width: 100%;
+    }
+
+    .prediction-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .prediction-card {
+        padding: 20px;
+    }
+
+    .chart-container {
+        height: 250px;
+    }
+
+    .comparison-card {
+        padding: 19px 13px;
+    }
+
+    #new-prediction-btn {
+        width: 100%;
+    }
+
+    footer {
+        font-size: 10px;
+        line-height: 1.7;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE DEVICES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .app-container {
+        padding: 0 12px;
+    }
+
+    .status {
+        font-size: 9px;
+        padding: 6px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand h1 {
+        font-size: 16px;
+    }
+
+    .form-card {
+        padding: 17px 13px;
+    }
+
+    .page-heading h2 {
+        font-size: 23px;
+    }
+}
+.hidden { display: none !important; }
