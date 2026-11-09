@@ -1,13 +1,111 @@
-# Python-generated files
+# ==========================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# ==========================================
+# HIDDEN FILES & IDE CONFIGURATIONS
+# ==========================================
+.*
+!.gitignore
+!.github/
+!.dockerignore
+!.env.example
+
+# ==========================================
+# PYTHON ENVIRONMENT
+# ==========================================
+venv/
+.venv/
+env/
+ENV/
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+.python-version
+
+# ==========================================
+# JUPYTER
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# IDE & EDITORS
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ==========================================
+# DATASETS & TEMPORARY DATA
+# ==========================================
+data/*
+!data/.gitkeep
+
+*.csv
+*.parquet
+*.xlsx
+*.xls
+*.zip
+
+# ==========================================
+# MODEL ARTIFACTS
+# ==========================================
+*.joblib
+*.pkl
+*.pickle
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# ==========================================
+# MLflow
+# ==========================================
+mlruns/
+mlartifacts/
+mlflow.db
+
+# ==========================================
+# LOGS & TEMPORARY FILES
+# ==========================================
+*.log
+logs/
+tmp/
+temp/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==========================================
+# BUILD & DEPLOYMENT
+# ==========================================
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
+.coverage
+htmlcov/
 
-# Virtual environments
-.venv
-mlruns/
-.ipynb_checkpoints/
-models/*.joblib
+# ==========================================
+# OS FILES
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# LOCAL DATABASES
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
