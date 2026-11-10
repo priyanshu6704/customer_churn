@@ -1,21 +1,18 @@
-
 FROM python:3.12-slim
 
-WORKDIR /app
+# XGBoost needs this system library
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/app
+WORKDIR /code
 
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-COPY app/ ./app/
-COPY src/ ./src/
-COPY models/ ./models/
-COPY reports/ ./reports/
+COPY app/ app/
+COPY src/ src/
+COPY models/ models/
+COPY reports/ reports/
 
 EXPOSE 8000
 
