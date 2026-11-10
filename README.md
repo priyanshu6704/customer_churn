@@ -106,7 +106,7 @@ Evaluated on a held-out **15% test set** (split: 70% train / 15% validation / 15
 | Model | ROC-AUC | Accuracy | Precision | Recall | F1 |
 |---|---|---|---|---|---|
 | Logistic Regression | 0.8145 | 0.7543 | 0.4502 | 0.7295 | 0.5568 |
-| Random Forest | — | — | — | — | — |
+| Random Forest | 0.8739 | 0.8461 | 0.6298 | 0.6613 | 0.6452 |
 | XGBoost | 0.8876 | 0.8650 | 0.7468 | 0.5479 | 0.6321 |
 
 > 🔄 The Random Forest was re-tuned (`max_depth`, `min_samples_leaf`) so its file fits
