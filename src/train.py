@@ -27,7 +27,7 @@ def initialize_models():
         "Random Forest": RandomForestClassifier(
             n_estimators=200,
             max_depth=None,
-            min_samples_split=2,
+            min_samples_split=50,
             class_weight="balanced",
             random_state=RANDOM_STATE,
             n_jobs=-1

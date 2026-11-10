@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 
 import pandas as pd
 
@@ -76,6 +78,33 @@ def generate_confusion_matrix(model, X, y):
     return confusion_matrix(y, predictions)
 
 
+def save_metrics(results, path="reports/model_metrics.json"):
+    """Write test metrics in the format the dashboard reads."""
+
+    key_map = {
+        "ROC-AUC": "roc_auc",
+        "Accuracy": "accuracy",
+        "Precision": "precision",
+        "Recall": "recall",
+        "F1-Score": "f1"
+    }
+
+    output = {
+        name.lower().replace(" ", "_"): {
+            key_map[metric]: round(float(value), 4)
+            for metric, value in scores.items()
+        }
+        for name, scores in results.items()
+    }
+
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+
+    with open(path, "w") as file:
+        json.dump(output, file, indent=2)
+
+    print(f"\nMetrics saved to {path}")
+
+
 if __name__ == "__main__":
 
     import joblib
@@ -105,3 +134,6 @@ if __name__ == "__main__":
 
     print("\nTEST RESULTS")
     print(compare_models(test_results).round(4))
+
+    # Save test metrics for the dashboard
+    save_metrics(test_results)
